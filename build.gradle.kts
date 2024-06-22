@@ -75,7 +75,7 @@ tasks.asciidoctor {
 
 val register = tasks.register("copyHTML", Copy::class) {
     dependsOn(tasks.asciidoctor)
-    from(file("build/asciidoc/html5"))
+    from(file("build/docs/asciidoc/html5"))
     into(file("src/main/resources/static/docs"))
 
     doFirst {
