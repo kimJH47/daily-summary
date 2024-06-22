@@ -9,7 +9,6 @@ plugins {
 
 group = "core"
 version = "0.0.1-SNAPSHOT"
-val kotestVersion = "5.9"
 
 java {
     toolchain {
@@ -29,6 +28,9 @@ repositories {
 
 extra["snippetsDir"] = file("build/generated-snippets")
 
+val kotestVersion = "5.7.2"
+val kotestExtensionSpringVersion = "1.1.3"
+
 dependencies {
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
     implementation("org.springframework.boot:spring-boot-starter-web")
@@ -46,7 +48,7 @@ dependencies {
     //kotest
     testImplementation("io.kotest:kotest-runner-junit5:$kotestVersion")
     testImplementation("io.kotest:kotest-assertions-core:$kotestVersion")
-    testImplementation("io.kotest.extensions:kotest-extensions-spring:1.1.2")
+    testImplementation("io.kotest.extensions:kotest-extensions-spring:$kotestExtensionSpringVersion")
 
     // mockk
     testImplementation("io.mockk:mockk:1.13.8")
@@ -70,3 +72,25 @@ tasks.asciidoctor {
     inputs.dir(project.extra["snippetsDir"]!!)
     dependsOn(tasks.test)
 }
+
+val register = tasks.register("copyHTML", Copy::class) {
+    dependsOn(tasks.asciidoctor)
+    from(file("build/asciidoc/html5"))
+    into(file("src/main/resources/static/docs"))
+
+    doFirst {
+        delete {
+            file("src/main/resources/static/docs")
+        }
+    }
+}
+
+tasks.build {
+    dependsOn(register)
+}
+tasks.bootJar {
+    dependsOn(register)
+}
+
+
+
