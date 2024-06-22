@@ -9,6 +9,7 @@ plugins {
 
 group = "core"
 version = "0.0.1-SNAPSHOT"
+val kotestVersion = "5.9"
 
 java {
     toolchain {
@@ -41,6 +42,14 @@ dependencies {
     testImplementation("org.jetbrains.kotlin:kotlin-test-junit5")
     testImplementation("org.springframework.restdocs:spring-restdocs-mockmvc")
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
+
+    //kotest
+    testImplementation("io.kotest:kotest-runner-junit5:$kotestVersion")
+    testImplementation("io.kotest:kotest-assertions-core:$kotestVersion")
+    testImplementation("io.kotest.extensions:kotest-extensions-spring:1.1.2")
+
+    // mockk
+    testImplementation("io.mockk:mockk:1.13.8")
 }
 
 kotlin {
