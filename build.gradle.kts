@@ -42,8 +42,10 @@ dependencies {
     annotationProcessor("org.projectlombok:lombok")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation("org.jetbrains.kotlin:kotlin-test-junit5")
-    testImplementation("org.springframework.restdocs:spring-restdocs-mockmvc")
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
+
+    //restDocs
+    testImplementation("org.springframework.restdocs:spring-restdocs-mockmvc")
 
     //kotest
     testImplementation("io.kotest:kotest-runner-junit5:$kotestVersion")
