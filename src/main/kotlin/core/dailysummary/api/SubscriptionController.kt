@@ -1,6 +1,6 @@
 package core.dailysummary.api
 
-import core.dailysummary.subscription.SubscriptionService
+import core.dailysummary.subscription.application.SubscriptionService
 import core.dailysummary.subscription.dto.SubscriptionRequest
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.PostMapping

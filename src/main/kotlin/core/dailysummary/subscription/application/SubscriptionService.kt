@@ -1,4 +1,4 @@
-package core.dailysummary.subscription
+package core.dailysummary.subscription.application
 
 import core.dailysummary.subscription.dto.NewsSubscriptionDto
 import org.springframework.stereotype.Service
