@@ -25,4 +25,7 @@ class User(
     var sendTime: Int = sendTime
         protected set
 
+    @Column
+    var verified : Boolean = false
+        protected set
 }
