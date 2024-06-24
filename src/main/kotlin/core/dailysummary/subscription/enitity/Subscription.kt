@@ -4,6 +4,7 @@ import core.dailysummary.common.entity.ULIDPrimaryKeyEntity
 import core.dailysummary.user.entity.User
 import jakarta.persistence.Entity
 import jakarta.persistence.FetchType
+import jakarta.persistence.JoinColumn
 import jakarta.persistence.ManyToOne
 
 @Entity
@@ -18,6 +19,7 @@ class Subscription(
         protected set
 
     @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id")
     var user = user
         protected set
 }
