@@ -10,7 +10,7 @@ import java.util.*
 @MappedSuperclass
 abstract class ULIDPrimaryKeyEntity : Persistable<UUID> {
     @Id
-    @Column(columnDefinition = "uuid")
+    @Column(columnDefinition = "BINARY(16)")
     private val id: UUID = UlidCreator.getMonotonicUlid().toUuid()
 
     @Transient
