@@ -54,6 +54,10 @@ dependencies {
 
     // mockk
     testImplementation("io.mockk:mockk:1.13.8")
+
+    //ULID Creator
+    implementation("com.github.f4b6a3:ulid-creator:5.2.3")
+
 }
 
 kotlin {
