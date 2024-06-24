@@ -1,6 +1,6 @@
 package core.dailysummary.subscription.dto
 
 data class NewsSubscriptionDto(
-    val news: String,
+    val name: String,
     val categories: String
 )
