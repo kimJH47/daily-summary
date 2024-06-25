@@ -10,3 +10,5 @@ spring:
     hibernate:
       ddl-auto: update
     open-in-view: false
+  config:
+    import: classpath:application-smtp.yml
