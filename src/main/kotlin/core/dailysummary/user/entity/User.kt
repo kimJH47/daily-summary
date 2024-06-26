@@ -26,6 +26,13 @@ class User(
         protected set
 
     @Column
-    var verified : Boolean = false
+    var verified: Boolean = false
         protected set
+
+    fun verify() {
+        if (verified) {
+            throw IllegalStateException("User already verified!")
+        }
+        verified = true
+    }
 }
