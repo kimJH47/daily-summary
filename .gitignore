@@ -38,3 +38,6 @@ out/
 
 ### Kotlin ###
 .kotlin
+
+/src/main/resources/application-local.yml
+/src/main/resources/application-smtp-local.yml
