@@ -41,3 +41,6 @@ out/
 
 /src/main/resources/application-local.yml
 /src/main/resources/application-smtp-local.yml
+
+### LOG ###
+.DS_Store
