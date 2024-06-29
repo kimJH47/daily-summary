@@ -22,7 +22,7 @@ class RestDocDsl {
     private var queryParametersSnippet: QueryParametersSnippet? = null
 
     fun requestFields(vararg fields: Field) {
-        PayloadDocumentation.requestFields(fields.map { it.descriptor })
+        requestFieldsSnippet = PayloadDocumentation.requestFields(fields.map { it.descriptor })
     }
 
     fun responseFields(vararg fields: Field) {
