@@ -1,0 +1,68 @@
+= Daily Summary API DOCS
+:doctype: book
+:icons: font
+:source-highlighter: highlightjs
+:toc: left
+:toclevels: 2
+:sectlinks:
+:docinfo: shared-head
+
+=== 구독 API
+
+==== 기본정보
+
+- 메서드 : POST
+- URL : `/api/v1/subscriptions`
+
+==== 요청
+
+===== 본문
+include::{snippets}/구독_요청_API/request-fields.adoc[]
+
+==== 응답
+
+===== 본문
+
+include::{snippets}/구독_요청_API/response-body.adoc[]
+
+==== 예시
+
+===== 요청
+
+include::{snippets}/구독_요청_API/http-request.adoc[]
+
+===== 응답
+
+include::{snippets}/구독_요청_API/http-response.adoc[]
+
+---
+
+=== 이메일 인증 API
+
+==== 기본정보
+
+- 메서드 : POST
+- URL : `/api/v1/auth/email-verification`
+
+==== 요청
+
+===== 본문
+include::{snippets}/이메일_인증_API/request-fields.adoc[]
+
+==== 응답
+
+===== 본문
+
+include::{snippets}/이메일_인증_API/response-body.adoc[]
+
+==== 예시
+
+===== 요청
+
+include::{snippets}/이메일_인증_API/http-request.adoc[]
+
+===== 응답
+
+include::{snippets}/이메일_인증_API/http-response.adoc[]
+
+
