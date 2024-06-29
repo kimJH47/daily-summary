@@ -26,8 +26,13 @@ repositories {
     mavenCentral()
 }
 
-extra["snippetsDir"] = file("build/generated-snippets")
+val asciidoctorExt = "asciidoctorExt"
+configurations.create(asciidoctorExt) {
+    extendsFrom(configurations.testImplementation.get())
+}
 
+
+val snippets = file("build/generated-snippets")
 val kotestVersion = "5.7.2"
 val kotestExtensionSpringVersion = "1.1.3"
 
@@ -47,6 +52,7 @@ dependencies {
 
     //restDocs
     testImplementation("org.springframework.restdocs:spring-restdocs-mockmvc")
+    asciidoctorExt("org.springframework.restdocs:spring-restdocs-asciidoctor")
 
     //kotest
     testImplementation("io.kotest:kotest-runner-junit5:$kotestVersion")
@@ -71,17 +77,18 @@ tasks.withType<Test> {
 }
 
 tasks.test {
-    outputs.dir(project.extra["snippetsDir"]!!)
+    outputs.dir(snippets)
 }
 
 tasks.asciidoctor {
-    inputs.dir(project.extra["snippetsDir"]!!)
+    inputs.dir(snippets)
     dependsOn(tasks.test)
+    configurations(asciidoctorExt)
 }
 
 val register = tasks.register("copyHTML", Copy::class) {
     dependsOn(tasks.asciidoctor)
-    from(file("build/docs/asciidoc/html5"))
+    from(file("build/docs/asciidoc"))
     into(file("src/main/resources/static/docs"))
 
     doFirst {
