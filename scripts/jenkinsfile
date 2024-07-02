@@ -30,15 +30,9 @@ pipeline {
         stage('Build Dockerfile') {
             steps{
                 script {
-                    docker.build(env.docker_image_name, """
-                        --build-arg DB_URL=${DB_URL} \
-                        --build-arg DB_USERNAME=${DB_USERNAME} \
-                        --build-arg DB_PASSWORD=${DB_PASSWORD} \
-                        --build-arg SMTP_PORT=${SMTP_PORT} \
-                        --build-arg SMTP_USERNAME=${SMTP_USERNAME} \
-                        --build-arg SMTP_PASSWORD=${SMTP_PASSWORD} \
-                        -f Dockerfile .
-                        """)
+                    docker.build(
+                    env.docker_image_name,"--build-arg DB_URL=${DB_URL} --build-arg DB_USERNAME=${DB_USERNAME} --build-arg DB_PASSWORD=${DB_PASSWORD} --build-arg SMTP_PORT=${SMTP_PORT} --build-arg SMTP_USERNAME=${SMTP_USERNAME} --build-arg SMTP_PASSWORD=${SMTP_PASSWORD} -f docker/Dockerfile"
+                    )
                 }
             }
 
