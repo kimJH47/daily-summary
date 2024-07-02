@@ -2,13 +2,13 @@ spring:
   application:
     name: daily-summary
   datasource:
-    url: jdbc:mysql://localhost:3306/seajul_test?serverTimezone=Asia/Seoul&characterEncoding=utf8
-    username: root
-    password: 1111
+    url: ${DB_URL}
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
     driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
     hibernate:
-      ddl-auto: update
+      ddl-auto: create
     open-in-view: false
   config:
     import: classpath:application-smtp.yml
